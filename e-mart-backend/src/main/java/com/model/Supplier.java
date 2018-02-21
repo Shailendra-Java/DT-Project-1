@@ -22,7 +22,7 @@ public class Supplier implements Serializable{
 	
 	@OneToMany(targetEntity=Products.class, fetch = FetchType.EAGER, mappedBy="supplier")
 	private Set<Products> products = new HashSet<Products>(0);
-	
+	/*
 	public Supplier() {}
 	
 	public Supplier(String sId, String supplierName, Set<Products> products) {
@@ -30,7 +30,7 @@ public class Supplier implements Serializable{
 		this.sId = sId;
 		this.supplierName = supplierName;
 		this.products = products;
-	}
+	}*/
 
 
 	public Set<Products> getProducts() {

@@ -17,10 +17,8 @@
     
 	<context:annotation-config/>
 	 <mvc:default-servlet-handler/>
-	   
-	<context:component-scan base-package="com.controller">
-		<context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
-	</context:component-scan>
+	   <mvc:annotation-driven />
+	<context:component-scan base-package="com.controller"></context:component-scan>
 	<context:component-scan base-package="com.*"></context:component-scan>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

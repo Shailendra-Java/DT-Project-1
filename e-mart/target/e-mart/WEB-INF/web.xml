@@ -11,14 +11,14 @@
     	<param-value>/WEB-INF/dispatcher-servlet.xml,/WEB-INF/spring-security.xml</param-value>
     </context-param>
   
-  <security-constraint>
+<!--   <security-constraint>
 
 	<web-resource-collection>
 		<web-resource-name>e-mart</web-resource-name>
 		<url-pattern>/*</url-pattern>
 		<http-method>GET</http-method>
 	</web-resource-collection>
- </security-constraint>
+ </security-constraint> -->
   
   
   <display-name>Archetype Created Web Application</display-name>

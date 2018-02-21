@@ -17,7 +17,7 @@ public class IndexController {
 	@Autowired
 	UserDaoImpl userDaoImpl;
 	
-	@RequestMapping(value = "/", method= {RequestMethod.POST,RequestMethod.GET})
+	@RequestMapping(value = "/")
 	public String index() {
 	      return "index";
 	   }

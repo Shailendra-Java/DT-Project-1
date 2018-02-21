@@ -27,7 +27,7 @@ public class SupplierDaoImpl implements SupplierDao {
 	}
 	
 	@Override
-	@Transactional
+	//@Transactional
 	public boolean insertSupplier(Supplier supplier) {
 		
 		try {
@@ -42,7 +42,7 @@ public class SupplierDaoImpl implements SupplierDao {
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public boolean updateSupplier(Supplier supplier) {
 		try {
 			Session session = sessionFactory.openSession();
@@ -56,7 +56,7 @@ public class SupplierDaoImpl implements SupplierDao {
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public boolean deleteSupplier(Supplier supplier) {
 		try {
 			Session session = sessionFactory.openSession();

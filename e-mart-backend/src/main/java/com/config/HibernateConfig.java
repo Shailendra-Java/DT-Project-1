@@ -74,7 +74,6 @@ public class HibernateConfig {
 		localSessionFactoryBuilder.addAnnotatedClass(Products.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Cart.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Orders.class);
-		
 		return localSessionFactoryBuilder.buildSessionFactory();
 	}
 	
