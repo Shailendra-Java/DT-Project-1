@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.dao.OrderDao;
 import com.model.Orders;
 
-@Repository("OrderDaoImpl")
+@Repository
 public class OrdersDaoImpl implements OrderDao
 {
 
@@ -18,14 +18,21 @@ public class OrdersDaoImpl implements OrderDao
 	
 	public OrdersDaoImpl(SessionFactory sessionfactory)
 	{
-	 this.sessionFactory = sessionFactory;
+		super();
+		this.sessionFactory = sessionFactory;
 	}
 	
-	@Transactional
+	//@Transactional
 	public void insertOrder(Orders order)
 	{
-		Session session =  sessionFactory.openSession();
-		session.persist(order);
+		try {
+			Session session =  sessionFactory.openSession();
+			session.beginTransaction();
+			session.persist(order);
+			session.getTransaction().commit();
+		}catch(Exception exception) {
+			
+		}
 	}
 
 }

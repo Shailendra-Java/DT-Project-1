@@ -11,12 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.ProductsDao;
-import com.model.Category;
 import com.model.Products;
-import com.model.Supplier;
 
 @Repository
-@Service
+//@Service
 public class ProductsDaoImpl implements ProductsDao{
 
 		@Autowired
@@ -24,12 +22,12 @@ public class ProductsDaoImpl implements ProductsDao{
 		
 		@Autowired
 		public ProductsDaoImpl(SessionFactory sessionFactory) {
-			
+			super();
 			this.sessionFactory = sessionFactory;
 		}
 		
 		@Override
-		@Transactional
+		//@Transactional
 		public void insertProduct(Products products) {
 			
 			try {
@@ -46,6 +44,7 @@ public class ProductsDaoImpl implements ProductsDao{
 		public List<Products> retrieve() {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
+			@SuppressWarnings("unchecked")
 			List<Products> list = session.createQuery("from Products").list();
 			session.getTransaction().commit();
 			return list;
@@ -65,6 +64,7 @@ public class ProductsDaoImpl implements ProductsDao{
 			}
 		}
 		
+		@SuppressWarnings("unchecked")
 		@Override
 		public List<Products> getProductByCategoryId(int cid) {
 			

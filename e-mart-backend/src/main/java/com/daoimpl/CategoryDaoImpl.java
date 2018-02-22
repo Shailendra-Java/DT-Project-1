@@ -15,7 +15,7 @@ import com.model.Category;
 import com.model.Supplier;
 
 @Repository
-@Service
+//@Service
 public class CategoryDaoImpl implements CategoryDao {
 
 	@Autowired
@@ -23,12 +23,12 @@ public class CategoryDaoImpl implements CategoryDao {
 	
 	@Autowired
 	public CategoryDaoImpl(SessionFactory sessionFactory) {
-		
+		super();
 		this.sessionFactory = sessionFactory;
 	}
 	
 	@Override
-	@Transactional
+	//@Transactional
 	public void insertCategory(Category category) {
 		
 		try {

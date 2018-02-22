@@ -7,10 +7,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.dao.CartDao;
 import com.model.Cart;
 
+@Repository
 public class CartDaoImpl implements CartDao
 {
 
@@ -22,7 +24,7 @@ public class CartDaoImpl implements CartDao
 		super();
 		this.sessionFactory = sessionFactory;
 	}
-	@Transactional
+	//@Transactional
 	public void insertCart(Cart cart)
 	{
 		Session session = sessionFactory.openSession();

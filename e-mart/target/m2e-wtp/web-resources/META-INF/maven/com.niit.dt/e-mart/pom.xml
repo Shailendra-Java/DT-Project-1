@@ -33,8 +33,9 @@
 	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-aop</artifactId>
-    	<version>4.3.14.RELEASE</version>
+    	<version>${spring.version}</version>
 	</dependency>
+	
 	<!-- Spring JDBC -->
 	<dependency>
     	<groupId>org.springframework</groupId>

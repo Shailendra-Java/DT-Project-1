@@ -17,7 +17,7 @@ public class Cart implements Serializable
 	@GeneratedValue
 	private int cartId;
 	private int cartProductId;
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "userMailId")
 	private User cartUserDetails;
 	

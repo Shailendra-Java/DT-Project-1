@@ -8,13 +8,12 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.SupplierDao;
 import com.model.Supplier;
 
 @Repository
-@Service
+//@Service
 public class SupplierDaoImpl implements SupplierDao {
 
 	@Autowired
@@ -22,7 +21,7 @@ public class SupplierDaoImpl implements SupplierDao {
 	
 	@Autowired
 	public SupplierDaoImpl(SessionFactory sessionFactory) {
-		
+		super();
 		this.sessionFactory = sessionFactory;
 	}
 	
@@ -90,6 +89,7 @@ public class SupplierDaoImpl implements SupplierDao {
 	public List<Supplier> retrieve() {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
+		@SuppressWarnings("unchecked")
 		List<Supplier> list = session.createQuery("from Supplier").list();
 		session.getTransaction().commit();
 		return list;

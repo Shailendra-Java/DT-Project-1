@@ -84,7 +84,7 @@ span.psw {
 </head>
 <body>
 	<%@include file="header.jsp" %>
-		<form:form name="submitForm" action="/login" method="POST">
+		<form:form name="submitForm" action="${pageContext.request.contextPath}/login" method="POST">
         <div align="center" style="margin-top:70px;">
             <div class="imgcontainer">
     <img src="https://www.renault.mk/libs.cdn.renault.com/etc/designs/renault_v2/3.1.1-2/common-assets/img/avatar/avatar.png" alt="Avatar" class="avatar">

@@ -26,6 +26,7 @@ import com.model.Products;
 import com.model.Supplier;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 
 	@Autowired
@@ -37,7 +38,7 @@ public class AdminController {
 	@Autowired
 	ProductsDaoImpl productDaoImpl;
 	
-	@RequestMapping(value="/adding", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/admin/adding", method= {RequestMethod.GET, RequestMethod.POST})
 	public String adding()
 	{
 		return "AdminAdding";

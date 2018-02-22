@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.daoimpl.CartDaoImpl;
@@ -58,7 +58,6 @@ public class HibernateConfig {
 		properties.put("hibernate.hbm2ddl.auto", "update");
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
-		System.out.println("---Tables created---");
 		return properties;
 	}
 	
@@ -74,6 +73,7 @@ public class HibernateConfig {
 		localSessionFactoryBuilder.addAnnotatedClass(Products.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Cart.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Orders.class);
+		System.out.println("---Tables created---");
 		return localSessionFactoryBuilder.buildSessionFactory();
 	}
 	
@@ -85,14 +85,14 @@ public class HibernateConfig {
 	}
 	
 	@Autowired
-	@Bean(name="categoryrDaoImpl")
+	@Bean(name="CategoryrDaoImpl")
 	public CategoryDaoImpl getCategoryData(SessionFactory sessionFactory){
 		
 		return new CategoryDaoImpl(sessionFactory);
 	}
 	
 	@Autowired
-	@Bean(name="supplierDaoImpl")
+	@Bean(name="SupplierDaoImpl")
 	public SupplierDaoImpl getSupplierData(SessionFactory sessionFactory){
 		
 		return new SupplierDaoImpl(sessionFactory);
@@ -106,7 +106,7 @@ public class HibernateConfig {
 	}
 	
 	@Autowired
-	@Bean(name="cartDaoImpl")
+	@Bean(name="CartDaoImpl")
 	public CartDaoImpl saveCartDAO(SessionFactory sessionFactory){
 		
 		return new CartDaoImpl(sessionFactory);
