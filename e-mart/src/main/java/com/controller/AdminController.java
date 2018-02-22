@@ -38,7 +38,7 @@ public class AdminController {
 	@Autowired
 	ProductsDaoImpl productDaoImpl;
 	
-	@RequestMapping(value="/admin/adding", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/adding", method= {RequestMethod.GET, RequestMethod.POST})
 	public String adding()
 	{
 		return "AdminAdding";
@@ -121,7 +121,7 @@ public class AdminController {
 	public ModelAndView supplist(){
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("satList", supplierDaoImpl.retrieve());
-		modelAndView.setViewName("supplierAdminList");
+		modelAndView.setViewName("suppAdminList");
 		return modelAndView;
 	}
 			
@@ -152,16 +152,16 @@ public class AdminController {
 	}
 				
 	@RequestMapping(value="/productUpdate", method= RequestMethod.POST)
-	public String updateProd(HttpServletRequest request, @RequestParam("file")MultipartFile file){
+	public ModelAndView updateProd(HttpServletRequest request, @RequestParam("file")MultipartFile file){
 				
-		String pid = request.getParameter("pid");
+		ModelAndView modelAndView = new ModelAndView();
 		Products product = new Products();
-		product.setProductId(Integer.parseInt(pid));
+		product.setProductId(Integer.parseInt(request.getParameter("pid")));
 
-		product.setProductName(request.getParameter("pName"));
-		product.setPrice(Float.parseFloat(request.getParameter("pPrice")));
-		product.setDescription(request.getParameter("pDescription"));
-		product.setStock(Integer.parseInt(request.getParameter("pStock")));
+		product.setProductName(request.getParameter("productName"));
+		product.setPrice(Float.parseFloat(request.getParameter("price")));
+		product.setDescription(request.getParameter("description"));
+		product.setStock(Integer.parseInt(request.getParameter("stock")));
 
 		String category = request.getParameter("pCategory");
 		String supplier = request.getParameter("pSupplier");
@@ -178,13 +178,16 @@ public class AdminController {
 
 		try{
 			byte imagebyte[] = file.getBytes();
-			BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filepath+"/resources/"+filename));
+			BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filepath+"/assets/images/"+filename));
 
 			fos.write(imagebyte);
 			fos.close();
 		}catch(IOException e){
 			e.printStackTrace();
 		}
-		return "redirect:/productList?update";
+		
+		modelAndView.addObject(product);
+		modelAndView.setViewName("redirect:/admin/productList?update");
+		return modelAndView;
 	}
 }

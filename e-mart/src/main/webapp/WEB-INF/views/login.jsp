@@ -92,10 +92,10 @@ span.psw {
 
   <div class="container" style="min-width: 450px; max-width: 100%; width:660px;">
     <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="username" required>
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="password" required>
         
     <label>
       <input type="checkbox" checked="checked"> Remember me
@@ -104,7 +104,7 @@ span.psw {
   </div>
 
   <div class="container" style="background-color:#f1f1f1; min-width: 450px; max-width: 100%; width:660px;">
-    <button type="button" class="cancelbtn">Cancel</button>
+    <button type="reset" class="cancelbtn">Reset</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
     </form:form>

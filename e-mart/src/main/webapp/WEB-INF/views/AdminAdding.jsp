@@ -5,8 +5,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<spring:url var="css" value="/resources/css" />
-<spring:url var="images" value="/resources/images" />
+<spring:url var="css" value="/assets/css" />
+<spring:url var="images" value="/assets/images" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,11 +29,11 @@
 <div>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 </div>
-
+<div style="width: 100%; height:50px;"></div>
 <div class="page-header">
 <div class="container">
 <div class="row">
-<div class="col-md-6" style="width: 100%; margin-top: 10px; padding-left:0px; padding-right:0px;">
+<div class="col-md-6" style="width: 100%; margin-top: -5px; padding-left:0px; padding-right:0px; border-radius:none;">
 <div class="panel with-nav-tabs panel-primary" style="border:none; width:100%;">
 <div class="panel-heading" style="background:#252226;">
 	<ul class="nav nav-tabs">
@@ -45,7 +45,7 @@
 	<div class="panel-body">
 		<div class="tab-content">
 			<div class="tab-pane fade in active" id="tab1">
-				<form method="post" action="<c:url value="/saveSupp"/>"class="form-signin">
+				<form method="post" action="<c:url value="/admin/saveSupp"/>"class="form-signin">
 				<span id="reauth-email" class="reauth-email"></span>
 				<h4 class="input-title">Supplier Id</h4><br>
 				<input class="form-control" type="number" name="sid" required/>
@@ -60,7 +60,7 @@
 				</form>
 			</div>
 			<div class="tab-pane fade" id="tab2">
-				<form method="post" action="<c:url value="/saveCat"/>"class="form-signin">
+				<form method="post" action="<c:url value="/admin/saveCat"/>"class="form-signin">
 				<span id="reauth-email" class="reauth-email"></span>
 				<h4 class="input-title">Category Id</h4><br>
 				<input class="form-control" type="number" name="cid" required/>
@@ -76,7 +76,7 @@
 			</div>
 			
 			<div class="tab-pane fade" id="tab3">
-				<form method="post" action="<c:url value="/saveProduct"/>"class="form-signin" enctype="multipart/form-data">
+				<form method="post" action="<c:url value="/admin/saveProduct"/>"class="form-signin" enctype="multipart/form-data">
 				<span id="reauth-email" class="reauth-email"></span>
 				
 				<h4 class="input-title">Product Name</h4><br>

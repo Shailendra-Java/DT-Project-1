@@ -44,9 +44,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <c:forEach var="catVAL" items="${catList}">
-    			<li><a href="${contextRoot}/productCustList?cid=${catVal.cid}">${catVal.cname}</a></li>
-    			<li><a href="${pageContext.request.contextPath}/productCustList?cid=${catVal.cid}">${catVal.cname}</a></li>
-    
+    			<li><a href="${contextRoot}/admin/productCustList?cid=${catVal.cid}">${catVal.categoryName}</a></li>
     		</c:forEach>
           </ul>
         </li>
@@ -58,6 +56,7 @@
     </c:if>
     
     <c:if test="${pageContext.request.userPrincipal.name!=null }">
+    <li><a href="#">Welcome ${pageContext.request.userPrincipal.name}</a></li>
     <li><a href = "${pageContext.request.contextPath }/logout">Logout</a></li>
     <li><a href = "${pageContext.request.contextPath }/goToCart">My Cart<i class = "fa fa-cart-plus" aria-hidden = "true"></i></a></li>
     </c:if>

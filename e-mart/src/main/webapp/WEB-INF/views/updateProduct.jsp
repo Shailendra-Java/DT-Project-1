@@ -9,32 +9,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link type="text/css" rel="stylesheet" href="/resources/nav.css" >
+  <link type="text/css" rel="stylesheet" href="/assets/css/emart-styles.css" >
+  
+   <style type="text/css">
+  	.container {
+    	padding: 5px;
+    	background:#fdfdfd;
+    	box-shadow: 0px 0px 18px -3px;
+    	border:solid 1px #777;
+    	min-height: 450px;
+	}
+  </style>
 </head>
 
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<div style="width: 100%; height:50px;"></div>
 
 <div class="container">
 
 <c:url value="/productUpdate" var="pru"></c:url>
-
-				<form method="post" action="productUpdate"class="form-signin" enctype="multipart/form-part">
+				<h1 class="input-title"> Update Product </h1>
+				<hr>
+				<form method="post" action="${pageContext.request.contextPath}/admin/productUpdate" class="form-signin" enctype="multipart/form-data">
 				<span id="reauth-email" class="reauth-email"></span>
 				
-				<input type="hidden" name="pid" prod="${prod.pid }">
+				<input type="hidden" name="pid" prod="${prod.productId }">
 				
 				<h4 class="input-title">Product Name</h4><br>
-				<input value="${prod.pname}" type="number" name="pName" required/><br> 
+				<input class="form-control" value="${prod.productName}" type="text" name="productName" required/><br> 
 				
 				<h4 class="input-title">Product Description</h4><br>
-				<input value="${prod.Description}" type="text" name="pDescription" required/>
+				<input class="form-control" value="${prod.description}" type="text" name="description" required/>
 				
 				<h4 class="input-title">Product price</h4><br>
-				<input value="${prod.price}" type="number" name="pPrice" required/>
+				<input class="form-control" value="${prod.price}" type="text" name="price" required/>
 				
 				<h4 class="input-title">Product stock</h4><br>
-				<input value="${prod.stock}" type="number" name="pStock" required/>
+				<input class="form-control" value="${prod.stock}" type="text" name="stock" required/>
 				
 				<div class="form-group">
 				<table>
@@ -44,7 +56,7 @@
 					<select class="form-control" name="pSupplier" required>
 					<option value="">---Select Supplier</option>
 					<c:forEach items="${sList }" var="sat">
-					<option value="${sat.sid}">${sat.supplierName }</option>
+					<option value="${sat.sId}">${sat.supplierName }</option>
 					</c:forEach>
 					</select>
 				</tr>
@@ -59,7 +71,7 @@
 					<select class="form-control" name="pCategory" required>
 					<option value="">---Select Category</option>
 					<c:forEach items="${cList }" var="cat">
-					<option value="${cat.cid}">${cat.cname}</option>
+					<option value="${cat.cid}">${cat.categoryName}</option>
 					</c:forEach>
 					</select>
 				</tr>

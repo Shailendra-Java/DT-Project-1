@@ -2,12 +2,14 @@ package com.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.daoimpl.CategoryDaoImpl;
 import com.daoimpl.UserDaoImpl;
 import com.model.User;
 
@@ -16,6 +18,9 @@ public class IndexController {
 
 	@Autowired
 	UserDaoImpl userDaoImpl;
+	
+	@Autowired
+	CategoryDaoImpl categoryDaoImpl;
 	
 	@RequestMapping(value = "/")
 	public String index() {
@@ -60,5 +65,34 @@ public class IndexController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("login");
 		return modelAndView;
+	}
+	
+	@RequestMapping(value="/login", method= RequestMethod.GET)
+	public ModelAndView doLogin() {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("login");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/userLogged", method= {RequestMethod.POST,RequestMethod.GET})
+	public ModelAndView userLogged() {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("index");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/error", method= RequestMethod.GET)
+	public ModelAndView error() {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("error");
+		return modelAndView;
+	}
+	
+	@ModelAttribute
+	public void loadingCategory(Model model){
+		model.addAttribute("catList", categoryDaoImpl.retrieve());
 	}
 }

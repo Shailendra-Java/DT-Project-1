@@ -12,9 +12,9 @@
   		footer {
 	  		width:100%;
       		background-color: #ededed;
-      		padding: 15px;
+      		padding: 8px;
 	  		bottom: 0px;
-	  		position:relative;
+	  		position:fixed;
 	  		border:solid 1px #000;
 	  		border-bottom:none;
     		border-left:none;
