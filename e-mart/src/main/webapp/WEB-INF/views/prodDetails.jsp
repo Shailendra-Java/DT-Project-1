@@ -30,7 +30,7 @@
 <input type = "hidden" value = "${prod.price }" name = "pPrice" />
 <input type = "hidden" value = "${prod.productName }" name = "pName" />
 <input type = "hidden" value = "${prod.imgName }" name = "imgName" />
-<input type = "hidden" class = "form-control" name = "pQty" required />
+<input type = "text" class = "form-control" placeholder="Quantity" name = "pQty" required /><br>
 <input class = "btn btn-warning btn-lg" type = "submit" value = "Add To Cart" />
 <h6><span class = "glyphicon-heart-empty" style = "cursor:pointer;"></span>Wish List</h6>
 </form>

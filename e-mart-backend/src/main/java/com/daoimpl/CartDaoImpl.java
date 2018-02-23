@@ -41,7 +41,7 @@ public class CartDaoImpl implements CartDao
 		try 
 		{
 			session.beginTransaction();
-			cr = (List<Cart>)session.createQuery("from Cart where userMailId=:email and cartProductId=:pid").setString("email", userId).list();
+			cr = (List<Cart>)session.createQuery("from Cart where userMailId=:email").setString("email", userId).list();
 			session.getTransaction().commit();
 		}
 		catch(HibernateException e)
