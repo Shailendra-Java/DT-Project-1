@@ -54,8 +54,8 @@ public class CartController
 		@Autowired
 		UserDaoImpl userDaoImpl;
 		
-		@RequestMapping(value="/productDetails/${p.pid}")
-		public ModelAndView prodDet(@PathVariable("pid")int pid)
+		@RequestMapping(value="/prodDetails")
+		public ModelAndView prodDet(@RequestParam("pid")int pid)
 		{
 			ModelAndView mv = new ModelAndView();
 			Products prod = productDaoImpl.findByProductId(pid);

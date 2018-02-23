@@ -141,15 +141,6 @@ public class AdminController {
 		return "redirect:/productList?del";
 	}
 	
-	@RequestMapping("/viewCat")
-	public ModelAndView viewCategory(@RequestParam("cid") String cid){
-				
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("prList", productDaoImpl.retrieve(cid));
-		modelAndView.setViewName("productCustList");
-		return modelAndView;
-	}
-	
 	@RequestMapping("/updateProd")
 	public ModelAndView updateproduct(@RequestParam("pid") int pid){
 				

@@ -7,9 +7,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.daoimpl.CategoryDaoImpl;
+import com.daoimpl.ProductsDaoImpl;
 import com.daoimpl.UserDaoImpl;
 import com.model.User;
 
@@ -21,6 +23,9 @@ public class IndexController {
 	
 	@Autowired
 	CategoryDaoImpl categoryDaoImpl;
+	
+	@Autowired
+	ProductsDaoImpl productDaoImpl;
 	
 	@RequestMapping(value = "/")
 	public String index() {
@@ -56,6 +61,15 @@ public class IndexController {
 			userDaoImpl.insertUser(user);
 			modelAndView.setViewName("index");
 		}
+		return modelAndView;
+	}
+	
+	@RequestMapping("/viewCat")
+	public ModelAndView viewCategory(@RequestParam("cid") String cid){
+				
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("prList", productDaoImpl.retrieve(cid));
+		modelAndView.setViewName("productCustList");
 		return modelAndView;
 	}
 	

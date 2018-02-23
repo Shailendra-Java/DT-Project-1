@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-
+<div style="width: 100%; height:50px;"></div>
 <div class="container">
 <h2>Product List for Customer</h2>
 <table class="table table-hover" id="apl" class="display" border="2" width="80" align="center">
@@ -30,7 +30,7 @@
 <th class="span2">Action</th>
 </tr>
 
-<c:if test="${empty prodList}">
+<c:if test="${empty prList}">
 <tr>
 <td colspan="10" align="center">No record exists!!</td>
 </tr>
@@ -52,7 +52,7 @@
 
 <td class = "span2">
 <c:set var = "contextRoot" value = "${pageContext.request.contextPath }"></c:set>
-<a class = "btn btn-info" role = "button" href = "<c:url value="/prodDetails/${p.productId }" />">Details</a>
+<a class = "btn btn-info" role = "button" href = "<c:url value="/prodDetails?pid=${p.productId }" />">Details</a>
 </td>
 
 </tr>
