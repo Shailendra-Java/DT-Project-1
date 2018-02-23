@@ -72,8 +72,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/saveProduct", method= RequestMethod.POST)
-	public String saveProd(HttpServletRequest request, @RequestParam("file")MultipartFile file)
+	public ModelAndView saveProd(HttpServletRequest request, @RequestParam("file")MultipartFile file)
 	{
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("status");
 		Products product = new Products();
 		product.setProductName(request.getParameter("productName"));
 		product.setPrice(Float.parseFloat(request.getParameter("price")));
@@ -91,7 +93,7 @@ public class AdminController {
 
 		try{
 			byte imagebyte[] = file.getBytes();
-			BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filepath+"/resources/"+filename));
+			BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filepath+"/assets/images/"+filename));
 
 			fos.write(imagebyte);
 			fos.close();
@@ -99,7 +101,7 @@ public class AdminController {
 		catch(IOException e){
 			e.printStackTrace();
 		}
-		return "status";
+		return modelAndView;
 	}
 			
 	@ModelAttribute
@@ -138,7 +140,16 @@ public class AdminController {
 		productDaoImpl.deleteProduct(pid);
 		return "redirect:/productList?del";
 	}
-			
+	
+	@RequestMapping("/viewCat")
+	public ModelAndView viewCategory(@RequestParam("cid") String cid){
+				
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("prList", productDaoImpl.retrieve(cid));
+		modelAndView.setViewName("productCustList");
+		return modelAndView;
+	}
+	
 	@RequestMapping("/updateProd")
 	public ModelAndView updateproduct(@RequestParam("pid") int pid){
 				
@@ -190,4 +201,5 @@ public class AdminController {
 		modelAndView.setViewName("redirect:/admin/productList?update");
 		return modelAndView;
 	}
+	
 }

@@ -14,7 +14,7 @@
       		background-color: #ededed;
       		padding: 8px;
 	  		bottom: 0px;
-	  		position:fixed;
+	  		/*  position:fixed; */
 	  		border:solid 1px #000;
 	  		border-bottom:none;
     		border-left:none;

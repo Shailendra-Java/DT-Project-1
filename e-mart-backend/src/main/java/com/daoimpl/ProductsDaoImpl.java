@@ -49,6 +49,16 @@ public class ProductsDaoImpl implements ProductsDao{
 			session.getTransaction().commit();
 			return list;
 		}
+		
+		@Override
+		public List<Products> retrieve(String cid) {
+			Session session = sessionFactory.openSession();
+			session.beginTransaction();
+			@SuppressWarnings("unchecked")
+			List<Products> list = session.createQuery("from Products where cid='"+cid+"'").list();
+			session.getTransaction().commit();
+			return list;
+		}
 
 		@Override
 		public boolean deleteProduct(int pid) {

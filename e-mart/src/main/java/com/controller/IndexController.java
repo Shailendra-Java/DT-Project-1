@@ -67,23 +67,15 @@ public class IndexController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/login", method= RequestMethod.GET)
-	public ModelAndView doLogin() {
-		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("login");
-		return modelAndView;
-	}
-	
 	@RequestMapping(value="/userLogged", method= {RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView userLogged() {
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("index");
+		modelAndView.setViewName("redirect:/index");
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/error", method= RequestMethod.GET)
+	@RequestMapping(value="/error", method= {RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView error() {
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -91,6 +83,13 @@ public class IndexController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/login", method= RequestMethod.GET)
+	public ModelAndView doLogin() {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("login");
+		return modelAndView;
+	}
 	@ModelAttribute
 	public void loadingCategory(Model model){
 		model.addAttribute("catList", categoryDaoImpl.retrieve());

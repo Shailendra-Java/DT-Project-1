@@ -26,7 +26,6 @@
 <th>Description</th>
 <th>Stock</th>
 <th>Price</th>
-<th>Action</th>
 <th>Image</th>
 <th class="span2">Action</th>
 </tr>
@@ -37,23 +36,23 @@
 </tr>
 </c:if>
 
-<c:forEach var="p" varStatus="st" items="${prodList }">
+<c:forEach var="p" varStatus="st" items="${prList }">
 
 <tr>
 <td><c:out value="${st.count }"></c:out></td>
 <td><c:out value="${p.productId }"></c:out></td>
-<td><c:out value="${p.pname }"></c:out></td>
+<td><c:out value="${p.productName }"></c:out></td>
 <td><c:out value="${p.supplier.supplierName }"></c:out></td>
 <td><c:out value="${p.category.categoryName}"></c:out></td>
 <td class="span3"><c:out value="${p.description}"></c:out></td>
 <td><c:out value="${p.price}"></c:out></td>
 <td><c:out value="${p.stock}"></c:out></td>
 
-<td><img src="${pageContext.request.contextPath}/resources/${p.imgName}" height="50px" width="50px"></td>
+<td><img src="${pageContext.request.contextPath}/assets/images/${p.imgName}" height="50px" width="50px"></td>
 
 <td class = "span2">
 <c:set var = "contextRoot" value = "${pageContext.request.contextPath }"></c:set>
-<a class = "btn btn-info" role = "button" href = "<c:url value="/prodDetails/${p.pid }" />">Details</a>
+<a class = "btn btn-info" role = "button" href = "<c:url value="/prodDetails/${p.productId }" />">Details</a>
 </td>
 
 </tr>

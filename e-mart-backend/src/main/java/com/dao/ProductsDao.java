@@ -8,6 +8,7 @@ public interface ProductsDao {
 
 	void insertProduct(Products products);
 	List<Products> retrieve();
+	public List<Products> retrieve(String cid);
 	boolean deleteProduct(int pid);
 	Products findByProductId(int pid);
 	List<Products> getProductByCategoryId(int cid);

@@ -56,8 +56,8 @@
 <td class="span4">
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 
-<a class="btn btn-info" role="button" href="${contextRoot }/admin/updateProd?pid=<c:out value="${p.productId }"></c:out>">Edit</a>
-<a class="btn btn-danger" role="button" href="<c:url value="/admin/deletProd ${p.productId }" />">Delete</a>
+<a class="btn btn-info" role="button" href="${contextRoot }/admin/updateProd?pid=${p.productId }">Edit</a>
+<a class="btn btn-danger" role="button" href="${contextRoot }/admin/deleteProd?pid=${p.productId }">Delete</a>
 </tr>
 
 </c:forEach>
