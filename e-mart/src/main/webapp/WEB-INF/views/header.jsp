@@ -43,8 +43,8 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <c:forEach var="cat" items="${catList}">
-    			<li><a href="${contextRoot}/viewCat?cid=${cat.cid}">${cat.categoryName}</a></li>
+            <c:forEach var="c" items="${catList}">
+    			<li><a href="${contextRoot}/viewCat?cid=${c.cid}">${c.categoryName}</a></li>
     		</c:forEach>
           </ul>
         </li>

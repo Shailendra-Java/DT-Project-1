@@ -76,7 +76,7 @@ public class CartController
 				int pid = Integer.parseInt(request.getParameter("pid"));
 						Double price = Double.parseDouble(request.getParameter("pPrice"));
 						int qty = Integer.parseInt(request.getParameter("pQty"));
-						String pname = request.getParameter("prodName");
+						String pname = request.getParameter("pName");
 						String imgName = request.getParameter("imgName");
 						Cart cartExist = cartDaoImpl.getCartById(pid, userEmail);
 						if(cartExist == null)
@@ -130,6 +130,26 @@ public class CartController
 			mv.addObject("cart", cart);
 			return mv;
 		}
+		
+		@RequestMapping(value = "/invoiceprocess", method = RequestMethod.POST )
+		public ModelAndView invoiceProcess(HttpServletRequest req)
+		{
+			ModelAndView mv = new ModelAndView("invoice");
+			Orders ord = new Orders();
+			Principal principal = req.getUserPrincipal();
+			String userEmail = principal.getName();
+			Double total = Double.parseDouble(req.getParameter("total"));
+			String payment = req.getParameter("payment");
+			User users = userDaoImpl.findUserByEmail(userEmail);
+			ord.setUser(users);
+			ord.setTotal(total);
+			ord.setPayment(payment);
+			orderDaoImpl.insertOrder(ord);
+			mv.addObject("orderDetails", users);
+			return mv;
+			
+		}
+		
 		@RequestMapping(value = "/Orderprocess", method = RequestMethod.POST )
 		public ModelAndView orderProcess(HttpServletRequest req)
 		{

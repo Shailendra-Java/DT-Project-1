@@ -13,10 +13,11 @@
 	  		width:100%;
       		background-color: #ededed;
       		padding: 8px;
-	  		bottom: 0px;
-	  		/*  position:fixed; */
+	  		position: relative;
+  			right: 0;
+  			bottom: 0;
+  			left: 0;
 	  		border:solid 1px #000;
-	  		border-bottom:none;
     		border-left:none;
     		border-right:none;
     	}
