@@ -135,10 +135,10 @@ public class AdminController {
 		return modelAndView;
 	}
 			
-	@RequestMapping("/deleteProd/{pid}")
-	public String deleteProduct(@PathVariable("pid")int pid){
+	@RequestMapping("/deleteProd")
+	public String deleteProduct(@RequestParam("pid")int pid){
 		productDaoImpl.deleteProduct(pid);
-		return "redirect:/productList?del";
+		return "redirect:/admin/productList?del";
 	}
 	
 	@RequestMapping("/updateProd")
@@ -158,7 +158,7 @@ public class AdminController {
 				
 		ModelAndView modelAndView = new ModelAndView();
 		Products product = new Products();
-		product.setProductId(Integer.parseInt(request.getParameter("pid")));
+		product.setProductId(Integer.parseInt(request.getParameter("productId")));
 
 		product.setProductName(request.getParameter("productName"));
 		product.setPrice(Float.parseFloat(request.getParameter("price")));

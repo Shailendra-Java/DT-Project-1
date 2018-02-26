@@ -13,11 +13,10 @@
   <title>Home page</title>
 </head>
 <body>
-<%-- <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include> --%>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class = "container" style="margin-top: 80px;">
 <hr>
-<div class = "modal fade eg-demo-model-sm" tabindex= "1" role = "dialog"
-aria-lablelledby = "myModel" aria-hidden = "true" id = "onload">
+<div class = "modal fade eg-demo-model-sm" tabindex= "1" role = "dialog" aria-lablelledby = "myModel" aria-hidden = "true" id = "onload">
 <div class = "model-dialog model-lg">
 <div class = "model-content">
 <div class = "modal-header">
@@ -36,7 +35,7 @@ $(document.ready(function()
 		{
 		$('#onload').status('show');
 		}
-		)
+		));
 </script>
 
 </body>

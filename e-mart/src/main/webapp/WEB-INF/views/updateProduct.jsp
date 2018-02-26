@@ -34,8 +34,7 @@
 				<form method="post" action="${pageContext.request.contextPath}/admin/productUpdate" class="form-signin" enctype="multipart/form-data">
 				<span id="reauth-email" class="reauth-email"></span>
 				
-				<input type="hidden" name="pid" prod="${prod.productId }">
-				
+				<input type="hidden" name="productId" value="${prod.productId }">
 				<h4 class="input-title">Product Name</h4><br>
 				<input class="form-control" value="${prod.productName}" type="text" name="productName" required/><br> 
 				

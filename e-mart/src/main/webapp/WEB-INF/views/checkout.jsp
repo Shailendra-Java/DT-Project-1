@@ -13,6 +13,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Home page</title>
   <style type="text/css">
+  	.col-xs-6-custom {
+    	width: 40%;
+    	margin-left: 28%;
+    	margin-right: 28%;
+    }
   	.container
   	{
   		min-width:100%;
@@ -20,14 +25,14 @@
   	}
   </style>
 </head>
-<body>
+<body style="background-image: url('${pageContext.request.contextPath }/assets/images/pay.jpg')">
 <div>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 </div>
 <div style="width: 100%; height:70px;"></div>
 <div class = "container">
 	<div class = "row">
-		<div class = "col-xs-6" jumbotron>
+		<div class = "col-xs-6 col-xs-6-custom" jumbotron>
 			<div class = "head">
 				<h3 style="text-shadow: 0px 1px 2px;color: cadetblue;font-family: arial;">Customer shipping details</h3>
 			</div>
@@ -41,16 +46,16 @@
 				<div class = "well">
 					<table style="text-align: left; width: 350px;">
 						<tr>
-							<td colspan = "3">Name    : </td><td>${user.name }</td>
+							<td colspan = "3"><b>Name    : </b></td><td>${user.name }</td>
 						</tr>
 						<tr>
-							<td colspan = "3">Email   : </td><td>${user.email }</td>
+							<td colspan = "3"><b>Email   : </b></td><td>${user.email }</td>
 						</tr>
 						<tr>
-							<td colspan = "3">Address : </td><td>${user.address }</td>
+							<td colspan = "3"><b></>Address : </b></td><td>${user.address }</td>
 						</tr>
 						<tr>
-							<td colspan = "3">Phone   : </td><td>${user.phone }</td>
+							<td colspan = "3"><b>Phone   : </b></td><td>${user.phone }</td>
 						</tr>
 					</table>
 				</div>

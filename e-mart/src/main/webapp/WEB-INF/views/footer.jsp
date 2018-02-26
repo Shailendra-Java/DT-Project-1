@@ -27,8 +27,8 @@
 <footer class="container-fluid text-center">
 	<p>Copyright &copy emart</p>
    <ul class="nav navbar-nav">
-      <li ><a href="#">Contact us</a></li>
-      <li><a href="#">About us</a></li>
+      <li ><a href="${pageContext.request.contextPath }/contactUs">Contact us</a></li>
+      <li><a href="${pageContext.request.contextPath }/aboutUs">About us</a></li>
 		<li><a href="http://www.facebook.com" class="fa fa-facebook" style="font-size:20px; "></a></li>
 		<li><a href="http://www.twitter.com" class="fa fa-twitter" style="font-size:20px;"></a></li>
       </ul>

@@ -139,33 +139,22 @@ public class CartController
 			Principal principal = req.getUserPrincipal();
 			String userEmail = principal.getName();
 			Double total = Double.parseDouble(req.getParameter("total"));
-			String payment = req.getParameter("payment");
+			String payment = req.getParameter("Payment");
 			User users = userDaoImpl.findUserByEmail(userEmail);
 			ord.setUser(users);
 			ord.setTotal(total);
 			ord.setPayment(payment);
 			orderDaoImpl.insertOrder(ord);
-			mv.addObject("orderDetails", users);
+			mv.addObject("user", users);
+			mv.addObject("order", ord);
 			return mv;
 			
 		}
 		
-		@RequestMapping(value = "/Orderprocess", method = RequestMethod.POST )
+		@RequestMapping(value = "/orderprocess", method = RequestMethod.POST )
 		public ModelAndView orderProcess(HttpServletRequest req)
 		{
 			ModelAndView mv = new ModelAndView("ack");
-			Orders ord = new Orders();
-			Principal principal = req.getUserPrincipal();
-			String userEmail = principal.getName();
-			Double total = Double.parseDouble(req.getParameter("total"));
-			String payment = req.getParameter("payment");
-			User users = userDaoImpl.findUserByEmail(userEmail);
-			ord.setUser(users);
-			ord.setTotal(total);
-			ord.setPayment(payment);
-			orderDaoImpl.insertOrder(ord);
-			mv.addObject("orderDetails", users);
-			mv.addObject("ack");
 			return mv;
 			
 		}
