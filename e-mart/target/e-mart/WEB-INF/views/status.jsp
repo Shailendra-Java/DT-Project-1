@@ -16,16 +16,15 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class = "container" style="margin-top: 80px;">
 <hr>
-<div class = "modal fade eg-demo-model-sm" tabindex= "1" role = "dialog"
-aria-lablelledby = "myModel" aria-hidden = "true" id = "onload">
+<div class = "modal fade eg-demo-model-sm" tabindex= "1" role = "dialog" aria-lablelledby = "myModel" aria-hidden = "true" id = "onload">
 <div class = "model-dialog model-lg">
 <div class = "model-content">
 <div class = "modal-header">
 <button type = "button" class = "close" data-dismiss = "model">X</button>
 </div>
-<div class = "model-body"><span>Added Successfully!!!</span>
+<div class = "model-body"><span>Record Added Successfully!!!</span>
 <div class = "model-footer">
-<a href = "${pageContent.request.contextPath }/adding" class = "btn btn-primary" role = "button">Back</a></div>
+<a href = "${pageContent.request.contextPath }/admin/adding" class = "btn btn-primary" role = "button">Back</a></div>
 </div>
 </div>
 </div>
@@ -36,7 +35,7 @@ $(document.ready(function()
 		{
 		$('#onload').status('show');
 		}
-		)
+		));
 </script>
 
 </body>

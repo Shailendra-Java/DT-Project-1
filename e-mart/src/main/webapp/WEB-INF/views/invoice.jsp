@@ -41,7 +41,7 @@
 							<td colspan = "3"><b>Email   : </b></td><td>${user.email }</td>
 						</tr>
 						<tr>
-							<td colspan = "3"><b></>Address : </b></td><td>${user.address }</td>
+							<td colspan = "3"><b>Address : </b></td><td>${user.address }</td>
 						</tr>
 						<tr>
 							<td colspan = "3"><b>Phone   : </b></td><td>${user.phone }</td>

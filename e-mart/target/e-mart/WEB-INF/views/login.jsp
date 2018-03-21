@@ -4,7 +4,7 @@
     
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<spring:url var="css" value="/resources/css" />
+<spring:url var="css" value="/assets/css" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -84,7 +84,7 @@ span.psw {
 </head>
 <body>
 	<%@include file="header.jsp" %>
-		<form:form name="submitForm" action="/login" method="POST">
+		<form:form name="submitForm" action="${pageContext.request.contextPath}/login" method="POST">
         <div align="center" style="margin-top:70px;">
             <div class="imgcontainer">
     <img src="https://www.renault.mk/libs.cdn.renault.com/etc/designs/renault_v2/3.1.1-2/common-assets/img/avatar/avatar.png" alt="Avatar" class="avatar">
@@ -92,10 +92,10 @@ span.psw {
 
   <div class="container" style="min-width: 450px; max-width: 100%; width:660px;">
     <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="username" required>
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="password" required>
         
     <label>
       <input type="checkbox" checked="checked"> Remember me
@@ -104,7 +104,7 @@ span.psw {
   </div>
 
   <div class="container" style="background-color:#f1f1f1; min-width: 450px; max-width: 100%; width:660px;">
-    <button type="button" class="cancelbtn">Cancel</button>
+    <button type="reset" class="cancelbtn">Reset</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
     </form:form>

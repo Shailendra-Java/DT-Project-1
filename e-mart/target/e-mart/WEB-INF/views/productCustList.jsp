@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-
+<div style="width: 100%; height:50px;"></div>
 <div class="container">
 <h2>Product List for Customer</h2>
 <table class="table table-hover" id="apl" class="display" border="2" width="80" align="center">
@@ -26,34 +26,33 @@
 <th>Description</th>
 <th>Stock</th>
 <th>Price</th>
-<th>Action</th>
 <th>Image</th>
 <th class="span2">Action</th>
 </tr>
 
-<c:if test="${empty prodList}">
+<c:if test="${empty prList}">
 <tr>
 <td colspan="10" align="center">No record exists!!</td>
 </tr>
 </c:if>
 
-<c:forEach var="p" varStatus="st" items="${prodList }">
+<c:forEach var="p" varStatus="st" items="${prList }">
 
 <tr>
 <td><c:out value="${st.count }"></c:out></td>
-<td><c:out value="${p.pid }"></c:out></td>
-<td><c:out value="${p.pname }"></c:out></td>
+<td><c:out value="${p.productId }"></c:out></td>
+<td><c:out value="${p.productName }"></c:out></td>
 <td><c:out value="${p.supplier.supplierName }"></c:out></td>
-<td><c:out value="${p.category.cname}"></c:out></td>
+<td><c:out value="${p.category.categoryName}"></c:out></td>
 <td class="span3"><c:out value="${p.description}"></c:out></td>
 <td><c:out value="${p.price}"></c:out></td>
 <td><c:out value="${p.stock}"></c:out></td>
 
-<td><img src="${pageContext.request.contextPath}/resources/${p.imgName}" height="50px" width="50px"></td>
+<td><img src="${pageContext.request.contextPath}/assets/images/${p.imgName}" height="50px" width="50px"></td>
 
 <td class = "span2">
 <c:set var = "contextRoot" value = "${pageContext.request.contextPath }"></c:set>
-<a class = "btn btn-info" role = "button" href = "<c:url value="/prodDetails/${p.pid }" />">Details</a>
+<a class = "btn btn-info" role = "button" href = "<c:url value="/prodDetails?pid=${p.productId }" />">Details</a>
 </td>
 
 </tr>

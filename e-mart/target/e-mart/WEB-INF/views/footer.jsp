@@ -12,11 +12,12 @@
   		footer {
 	  		width:100%;
       		background-color: #ededed;
-      		padding: 15px;
-	  		bottom: 0px;
-	  		position:relative;
+      		padding: 8px;
+	  		position: relative;
+  			right: 0;
+  			bottom: 0;
+  			left: 0;
 	  		border:solid 1px #000;
-	  		border-bottom:none;
     		border-left:none;
     		border-right:none;
     	}
@@ -26,8 +27,8 @@
 <footer class="container-fluid text-center">
 	<p>Copyright &copy emart</p>
    <ul class="nav navbar-nav">
-      <li ><a href="#">Contact us</a></li>
-      <li><a href="#">About us</a></li>
+      <li ><a href="${pageContext.request.contextPath }/contactUs">Contact us</a></li>
+      <li><a href="${pageContext.request.contextPath }/aboutUs">About us</a></li>
 		<li><a href="http://www.facebook.com" class="fa fa-facebook" style="font-size:20px; "></a></li>
 		<li><a href="http://www.twitter.com" class="fa fa-twitter" style="font-size:20px;"></a></li>
       </ul>

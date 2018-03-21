@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Thank you,,,,!!!!!</h1>
+<div>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+</div>
+<div style="width: 100%; height:70px;"></div>
+<h1>Thanking you to shopping with us...</h1>
 </body>
 </html>

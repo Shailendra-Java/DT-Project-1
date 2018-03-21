@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-
+<div style="width: 100%; height:50px;"></div>
 <div class="container">
 <h2>Supplier List for Admin</h2>
 
@@ -36,14 +36,14 @@
 
 <tr>
 <td><c:out value="${st.count }"></c:out></td>
-<td><c:out value="${p.sid }"></c:out></td>
+<td><c:out value="${p.sId }"></c:out></td>
 <td><c:out value="${p.supplierName }"></c:out></td>
 
 <td class="span4">
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 
-<a class="btn btn-info" role="button" href="#"></a>
-<a class="btn btn-danger" role="button" href="#"></a>
+<a class="btn btn-info" role="button" href="#">Edit</a>
+<a class="btn btn-danger" role="button" href="#">Delete</a>
 </td>
 </tr>
 
