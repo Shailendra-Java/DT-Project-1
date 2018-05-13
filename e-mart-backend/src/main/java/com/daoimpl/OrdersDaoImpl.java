@@ -16,9 +16,10 @@ public class OrdersDaoImpl implements OrderDao
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	public OrdersDaoImpl(SessionFactory sessionfactory)
-	{
+	@Autowired
+	public OrdersDaoImpl(SessionFactory sessionFactory) {
 		super();
+		System.out.println("Order bean creation");
 		this.sessionFactory = sessionFactory;
 	}
 	

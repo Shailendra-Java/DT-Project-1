@@ -20,6 +20,14 @@ import com.daoimpl.OrdersDaoImpl;
 import com.daoimpl.ProductsDaoImpl;
 import com.daoimpl.SupplierDaoImpl;
 import com.daoimpl.UserDaoImpl;
+
+import com.dao.CartDao;
+import com.dao.CategoryDao;
+import com.dao.OrderDao;
+import com.dao.ProductsDao;
+import com.dao.SupplierDao;
+import com.dao.UserDao;
+
 import com.model.Cart;
 import com.model.Category;
 import com.model.Orders;
@@ -79,42 +87,42 @@ public class HibernateConfig {
 	
 	@Autowired
 	@Bean(name="userDaoImpl")
-	public UserDaoImpl getUserData(SessionFactory sessionFactory){
+	public UserDao getUserData(SessionFactory sessionFactory){
 		
 		return new UserDaoImpl(sessionFactory);
 	}
 	
 	@Autowired
-	@Bean(name="CategoryrDaoImpl")
-	public CategoryDaoImpl getCategoryData(SessionFactory sessionFactory){
+	@Bean(name="categoryDaoimpl")
+	public CategoryDao getCategoryData(SessionFactory sessionFactory){
 		
 		return new CategoryDaoImpl(sessionFactory);
 	}
 	
 	@Autowired
-	@Bean(name="SupplierDaoImpl")
-	public SupplierDaoImpl getSupplierData(SessionFactory sessionFactory){
+	@Bean(name="supplierDaoImpl")
+	public SupplierDao getSupplierData(SessionFactory sessionFactory){
 		
 		return new SupplierDaoImpl(sessionFactory);
 	}
 	
 	@Autowired
-	@Bean(name="productDaoImpl")
-	public ProductsDaoImpl getProductData(SessionFactory sessionFactory){
+	@Bean(name="productsDaoImpl")
+	public ProductsDao getProductData(SessionFactory sessionFactory){
 		
 		return new ProductsDaoImpl(sessionFactory);
 	}
 	
 	@Autowired
-	@Bean(name="CartDaoImpl")
-	public CartDaoImpl saveCartDAO(SessionFactory sessionFactory){
+	@Bean(name="cartDaoImpl")
+	public CartDao saveCartDao(SessionFactory sessionFactory){
 		
 		return new CartDaoImpl(sessionFactory);
 	}
 
 	@Autowired
 	@Bean(name="ordersDaoImpl")
-	public OrdersDaoImpl saveOrderrDAO(SessionFactory sessionFactory){
+	public OrderDao saveOrderrDAO(SessionFactory sessionFactory){
 		
 		return new OrdersDaoImpl(sessionFactory);
 	}

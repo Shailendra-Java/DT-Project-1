@@ -19,9 +19,12 @@ public class UserDaoImpl implements UserDao{
 	
 	@Autowired
 	public UserDaoImpl(SessionFactory sessionFactory) {
-
+		
+		super();
+		System.out.println("User bean creation");
 		this.sessionFactory = sessionFactory;
 	}
+	
 	public void insertUser(User user) {
 		
 		Session session = sessionFactory.openSession();

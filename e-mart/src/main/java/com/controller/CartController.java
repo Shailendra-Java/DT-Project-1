@@ -20,6 +20,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dao.CartDao;
+import com.dao.CategoryDao;
+import com.dao.OrderDao;
+import com.dao.ProductsDao;
+import com.dao.SupplierDao;
+import com.dao.UserDao;
 import com.daoimpl.CartDaoImpl;
 import com.daoimpl.CategoryDaoImpl;
 import com.daoimpl.OrdersDaoImpl;
@@ -37,28 +43,28 @@ import com.model.User;
 public class CartController
 {
 		@Autowired
-		SupplierDaoImpl supplierDaoImpl;
+		SupplierDao supplierDaoImpl;
 		
 		@Autowired
-		CategoryDaoImpl categoryDaoImpl;
+		CategoryDao categoryDaoImpl;
 		
 		@Autowired
-		ProductsDaoImpl productDaoImpl;
+		ProductsDao productsDaoImpl;
 		
 		@Autowired
-		CartDaoImpl cartDaoImpl;
+		CartDao cartDaoImpl;
 		
 		@Autowired
-		OrdersDaoImpl orderDaoImpl;
+		OrderDao orderDaoImpl;
 		
 		@Autowired
-		UserDaoImpl userDaoImpl;
+		UserDao userDaoImpl;
 		
 		@RequestMapping(value="/prodDetails")
 		public ModelAndView prodDet(@RequestParam("pid")int pid)
 		{
 			ModelAndView mv = new ModelAndView();
-			Products prod = productDaoImpl.findByProductId(pid);
+			Products prod = productsDaoImpl.findByProductId(pid);
 			mv.addObject("prod",prod);
 			mv.setViewName("prodDetails");
 			return mv;

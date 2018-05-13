@@ -19,11 +19,13 @@ public class CartDaoImpl implements CartDao
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	public CartDaoImpl(SessionFactory sessionFactory)
-	{
+	@Autowired
+	public CartDaoImpl(SessionFactory sessionFactory) {
 		super();
+		System.out.println("Cart bean creation");
 		this.sessionFactory = sessionFactory;
 	}
+	
 	//@Transactional
 	public void insertCart(Cart cart)
 	{

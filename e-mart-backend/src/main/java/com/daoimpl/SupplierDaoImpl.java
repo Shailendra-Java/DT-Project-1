@@ -21,7 +21,9 @@ public class SupplierDaoImpl implements SupplierDao {
 	
 	@Autowired
 	public SupplierDaoImpl(SessionFactory sessionFactory) {
+		
 		super();
+		System.out.println("Supplier bean creation");
 		this.sessionFactory = sessionFactory;
 	}
 	

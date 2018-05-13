@@ -24,6 +24,7 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Autowired
 	public CategoryDaoImpl(SessionFactory sessionFactory) {
 		super();
+		System.out.println("Category bean creation");
 		this.sessionFactory = sessionFactory;
 	}
 	

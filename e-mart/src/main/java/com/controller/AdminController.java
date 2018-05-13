@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dao.CategoryDao;
+import com.dao.ProductsDao;
+import com.dao.SupplierDao;
 import com.daoimpl.CategoryDaoImpl;
 import com.daoimpl.ProductsDaoImpl;
 import com.daoimpl.SupplierDaoImpl;
@@ -30,13 +33,13 @@ import com.model.Supplier;
 public class AdminController {
 
 	@Autowired
-	SupplierDaoImpl supplierDaoImpl;
+	SupplierDao supplierDaoImpl;
 	
 	@Autowired
-	CategoryDaoImpl categoryDaoImpl;
+	CategoryDao categoryDaoimpl;
 	
 	@Autowired
-	ProductsDaoImpl productDaoImpl;
+	ProductsDao productDao;
 	
 	@RequestMapping(value="/adding", method= {RequestMethod.GET, RequestMethod.POST})
 	public String adding()
@@ -66,7 +69,7 @@ public class AdminController {
 		Category category = new Category();
 		category.setCid(cid);
 		category.setCategoryName(cname);
-		categoryDaoImpl.insertCategory(category);
+		categoryDaoimpl.insertCategory(category);
 		modelAndView.setViewName("status");
 		return modelAndView;
 	}
@@ -81,13 +84,13 @@ public class AdminController {
 		product.setPrice(Float.parseFloat(request.getParameter("price")));
 		product.setDescription(request.getParameter("description"));
 		product.setStock(Integer.parseInt(request.getParameter("stock")));
-		product.setCategory(categoryDaoImpl.findByCatId(request.getParameter("pCategory")));
+		product.setCategory(categoryDaoimpl.findByCatId(request.getParameter("pCategory")));
 		product.setSupplier(supplierDaoImpl.findBySupplierId(request.getParameter("pSupplier")));
 
 		String filepath = request.getSession().getServletContext().getRealPath("/"); 
 		String filename = file.getOriginalFilename();
 		product.setImgName(filename);
-		productDaoImpl.insertProduct(product);
+		productDao.insertProduct(product);
 
 		System.out.println("File path"+ filepath);
 
@@ -107,14 +110,14 @@ public class AdminController {
 	@ModelAttribute
 	public void loadingDataInPage(Model model){
 		model.addAttribute("satList", supplierDaoImpl.retrieve());
-		model.addAttribute("catList", categoryDaoImpl.retrieve());
-		model.addAttribute("prodList", productDaoImpl.retrieve());
+		model.addAttribute("catList", categoryDaoimpl.retrieve());
+		model.addAttribute("prodList", productDao.retrieve());
 	}
 		
 	@RequestMapping("/productList")
 	public ModelAndView prodlist(){
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("prodList", productDaoImpl.retrieve());	
+		modelAndView.addObject("prodList", productDao.retrieve());	
 		modelAndView.setViewName("productAdminList");
 		return modelAndView;
 	}
@@ -130,14 +133,14 @@ public class AdminController {
 	@RequestMapping("/categoryList")
 	public ModelAndView catlist(){
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("catList", categoryDaoImpl.retrieve());
+		modelAndView.addObject("catList", categoryDaoimpl.retrieve());
 		modelAndView.setViewName("categoryAdminList");
 		return modelAndView;
 	}
 			
 	@RequestMapping("/deleteProd")
 	public String deleteProduct(@RequestParam("pid")int pid){
-		productDaoImpl.deleteProduct(pid);
+		productDao.deleteProduct(pid);
 		return "redirect:/admin/productList?del";
 	}
 	
@@ -145,9 +148,9 @@ public class AdminController {
 	public ModelAndView updateproduct(@RequestParam("pid") int pid){
 				
 		ModelAndView modelAndView = new ModelAndView();
-		Products product = productDaoImpl.findByProductId(pid);
+		Products product = productDao.findByProductId(pid);
 		modelAndView.addObject("prod", product);
-		modelAndView.addObject("cList", categoryDaoImpl.retrieve());
+		modelAndView.addObject("cList", categoryDaoimpl.retrieve());
 		modelAndView.addObject("sList",supplierDaoImpl.retrieve());
 		modelAndView.setViewName("updateProduct");
 		return modelAndView;
@@ -168,13 +171,13 @@ public class AdminController {
 		String category = request.getParameter("pCategory");
 		String supplier = request.getParameter("pSupplier");
 
-		product.setCategory(categoryDaoImpl.findByCatId(category));
+		product.setCategory(categoryDaoimpl.findByCatId(category));
 		product.setSupplier(supplierDaoImpl.findBySupplierId(supplier));
 
 		String filepath = request.getSession().getServletContext().getRealPath("/"); 
 		String filename = file.getOriginalFilename();
 		product.setImgName(filename);
-		productDaoImpl.update(product);
+		productDao.update(product);
 
 		System.out.println("File path"+ filepath);
 

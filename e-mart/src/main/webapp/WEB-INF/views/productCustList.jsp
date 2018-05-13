@@ -45,8 +45,8 @@
 <td><c:out value="${p.supplier.supplierName }"></c:out></td>
 <td><c:out value="${p.category.categoryName}"></c:out></td>
 <td class="span3"><c:out value="${p.description}"></c:out></td>
-<td><c:out value="${p.price}"></c:out></td>
 <td><c:out value="${p.stock}"></c:out></td>
+<td><c:out value="${p.price}"></c:out></td>
 
 <td><img src="${pageContext.request.contextPath}/assets/images/${p.imgName}" height="50px" width="50px"></td>
 

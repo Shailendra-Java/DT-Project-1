@@ -23,6 +23,7 @@ public class ProductsDaoImpl implements ProductsDao{
 		@Autowired
 		public ProductsDaoImpl(SessionFactory sessionFactory) {
 			super();
+			System.out.println("Product bean creation");
 			this.sessionFactory = sessionFactory;
 		}
 		

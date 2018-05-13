@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dao.CategoryDao;
+import com.dao.ProductsDao;
+import com.dao.UserDao;
 import com.daoimpl.CategoryDaoImpl;
 import com.daoimpl.ProductsDaoImpl;
 import com.daoimpl.UserDaoImpl;
@@ -19,13 +22,13 @@ import com.model.User;
 public class IndexController {
 
 	@Autowired
-	UserDaoImpl userDaoImpl;
+	UserDao userDaoImpl;
 	
 	@Autowired
-	CategoryDaoImpl categoryDaoImpl;
+	CategoryDao categoryDaoImpl;
 	
 	@Autowired
-	ProductsDaoImpl productDaoImpl;
+	ProductsDao productsDaoImpl;
 	
 	@RequestMapping(value = "/")
 	public String index() {
@@ -68,7 +71,7 @@ public class IndexController {
 	public ModelAndView viewCategory(@RequestParam("cid") String cid){
 				
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("prList", productDaoImpl.retrieve(cid));
+		modelAndView.addObject("prList", productsDaoImpl.retrieve(cid));
 		modelAndView.setViewName("productCustList");
 		return modelAndView;
 	}
